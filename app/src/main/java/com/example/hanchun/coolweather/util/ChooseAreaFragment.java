@@ -3,6 +3,7 @@ package com.example.hanchun.coolweather.util;
 import android.annotation.SuppressLint;
 import android.app.Fragment;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.hanchun.coolweather.R;
+import com.example.hanchun.coolweather.WeatherActivity;
 import com.example.hanchun.coolweather.db.City;
 import com.example.hanchun.coolweather.db.County;
 import com.example.hanchun.coolweather.db.Province;
@@ -119,6 +121,12 @@ public class ChooseAreaFragment extends Fragment {
                 }else if(CurrentLevel == LEVEL_CITY){
                     selectedCity = cityList.get(position);
                     queryCounties();
+                }else if(CurrentLevel == LEVEL_COUNTY){
+                    String weatherId = countyList.get(position).getWeatherId();
+                    Intent intent = new Intent(getActivity(), WeatherActivity.class);
+                    intent.putExtra("weather_id",weatherId);
+                    startActivity(intent);
+                    getActivity().finish();
                 }
             }
         });
