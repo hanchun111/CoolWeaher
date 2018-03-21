@@ -1,4 +1,4 @@
-# CoolWeaher
+# CoolWeather
 
 	该App是郭霖的《第一行代码（第二版）》第十四章的练习。
 
